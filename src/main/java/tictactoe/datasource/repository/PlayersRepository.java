@@ -9,6 +9,8 @@ import java.util.UUID;
 public interface PlayersRepository extends CrudRepository<Players, UUID> {
     Optional<Players> findByLogin(String Login);
 
+    Optional<Players> findByID(UUID id);
+
     boolean existingByLogin(String login);
 
 

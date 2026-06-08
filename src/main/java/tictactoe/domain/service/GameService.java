@@ -8,22 +8,10 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class GameService {
-    private final PlayersRepository playersRepository;
     private final GamesRepository gamesRepository;
 
-    public GameService(PlayersRepository playersRepository, GamesRepository gamesRepository) {
-        this.playersRepository = playersRepository;
+    public GameService(GamesRepository gamesRepository) {
         this.gamesRepository = gamesRepository;
-    }
-
-    public Players createPlayer(String login, String password) {
-        Players players = new Players(login, password);
-        playersRepository.save(players);
-        return players;
-    }
-
-    public Players findPlayerByLogin(String login) {
-        return this.playersRepository.findByLogin(login).orElse(null);
     }
 
     public Optional<Games> findGameByID(UUID id) {
